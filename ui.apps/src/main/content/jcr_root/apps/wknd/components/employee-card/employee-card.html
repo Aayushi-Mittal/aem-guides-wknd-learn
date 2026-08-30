@@ -1,0 +1,31 @@
+<!--/* employee-card.html */-->
+<div data-sly-use.card="com.adobe.aem.guides.wknd.core.models.EmployeeCard"
+     data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.clientlib="/apps/wknd/components/employee-card/clientlib"
+     data-sly-test.hasContent="${!card.empty}"
+     class="cmp-employee-card">
+
+    <sly data-sly-call="${clientlib.css @ categories='wknd.employeecard'}"/>
+
+    <div class="cmp-employee-card__image" data-sly-test="${card.imagePath}">
+        <img class="cmp-employee-card__img"
+             src="${card.imagePath}"
+             alt="${card.name}"/>
+    </div>
+
+    <h3 class="cmp-employee-card__name">${card.name}</h3>
+
+    <p class="cmp-employee-card__designation"
+       data-sly-test="${card.designation}">${card.designation}</p>
+
+    <p class="cmp-employee-card__description"
+       data-sly-test="${card.description}">${card.description}</p>
+
+    <a class="cmp-employee-card__linkedin"
+       data-sly-test="${card.showLinkedIn}"
+       href="${card.linkedInUrl}"
+       target="_blank"
+       rel="noopener noreferrer">View LinkedIn</a>
+</div>
+
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
