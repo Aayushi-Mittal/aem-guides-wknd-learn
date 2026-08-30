@@ -1,0 +1,27 @@
+{
+  "list": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "wknd/components/article-list",
+    "articles": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "title": "First",
+        "description": "The featured article.",
+        "category": "News",
+        "url": "/content/first"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "title": "Second",
+        "description": "Another one.",
+        "category": "Tips",
+        "url": "/content/second"
+      }
+    }
+  },
+  "empty": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "wknd/components/article-list"
+  }
+}

@@ -1,0 +1,18 @@
+<!--/* article-list.html */-->
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ArticleList"
+     class="cmp-article-list">
+
+    <p data-sly-test="${!model.articles}">No articles configured.</p>
+
+    <ul data-sly-list.article="${model.articles}" class="cmp-article-list__items">
+        <!--/* articleList is auto-provided by data-sly-list: .index, .first, .last, .odd ... */-->
+        <li class="cmp-article-list__item ${articleList.first ? 'cmp-article-list__item--featured' : ''}">
+            <a href="${article.url}">
+                <h3>${article.title}</h3>
+            </a>
+            <span class="cmp-article-list__category">${article.category}</span>
+            <!--/* Only the featured (first) item shows its description */-->
+            <p data-sly-test="${articleList.first}">${article.description}</p>
+        </li>
+    </ul>
+</div>
