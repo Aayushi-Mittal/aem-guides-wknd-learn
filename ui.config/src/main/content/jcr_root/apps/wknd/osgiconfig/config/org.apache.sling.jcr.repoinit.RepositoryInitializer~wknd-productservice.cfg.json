@@ -1,0 +1,5 @@
+{
+  "scripts": [
+    "create service user wknd-product-reader\nset ACL for wknd-product-reader\n    allow jcr:read on /content/wknd-demo\nend"
+  ]
+}

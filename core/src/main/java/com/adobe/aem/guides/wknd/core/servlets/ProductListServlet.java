@@ -37,8 +37,8 @@ public class ProductListServlet extends SlingSafeMethodsServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        // Delegate to the service; the servlet adds no business logic.
-        Object products = productService.getProducts(request.getResourceResolver());
+        // Delegate to the service; it uses its own scoped service-user resolver.
+        Object products = productService.getProductsAsService();
         response.getWriter().write(new ObjectMapper().writeValueAsString(products));
     }
 }
