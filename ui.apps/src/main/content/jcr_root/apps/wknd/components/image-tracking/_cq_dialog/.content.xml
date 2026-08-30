@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  We do NOT redefine the core Image dialog. The Sling Resource Merger merges
+  this dialog with the sling:resourceSuperType's dialog. We only declare the
+  new "tracking" tab; every core tab (asset, metadata, styles...) is inherited.
+-->
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured">
+                <items jcr:primaryType="nt:unstructured">
+                    <tracking
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tracking"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <trackingId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Tracking ID"
+                                fieldDescription="Analytics id emitted as a data attribute."
+                                name="./trackingId"/>
+                        </items>
+                    </tracking>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

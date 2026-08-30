@@ -1,0 +1,12 @@
+<!--/* image-tracking.html */-->
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ImageTracking"
+     class="cmp-image-tracking"
+     data-tracking-id="${model.trackingId}">
+
+    <!--/*
+        Reuse the ENTIRE core Image rendering by re-including this same resource
+        forced to the core image resourceType. Zero duplicated markup.
+        model.image.src (a delegated core Image method) proves delegation works.
+    */-->
+    <sly data-sly-resource="${resource.path @ resourceType='core/wcm/components/image/v3/image'}"/>
+</div>
