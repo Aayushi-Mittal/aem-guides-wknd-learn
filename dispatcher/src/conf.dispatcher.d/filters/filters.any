@@ -15,6 +15,10 @@ $include "./default_filters.any"
 # Allow Quick Search
 /0110 { /type "allow" /extension "json" /selectors "searchresults" /path "/content/*" }
 
+# Exercise 13: allow our custom servlet endpoints (otherwise 404 at dispatcher though publish=200)
+/0120 { /type "allow" /extension "json" /selectors "productsearch" /path "/content/*" }
+/0121 { /type "allow" /extension "json" /selectors "productlist" /path "/content/*" }
+
 # Allow j_security check for login
 /0111 { /type "allow" /method "POST" /url "/system/sling/login/j_security_check" }
 
