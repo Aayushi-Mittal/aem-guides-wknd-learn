@@ -1,4 +1,60 @@
-# AEM WKND Sites Project
+# AEM WKND Sites Project — Interview Practice Fork
+
+This is a **learning fork** of the Adobe WKND Sites project, used to practice **AEM development
+for a live coding interview**. On top of the standard WKND codebase, it adds **15 hands-on
+exercises** — each built into the real project, deployed to a local **AEM 6.5.2 LTS** author
+instance, and verified live.
+
+Every exercise lives on **its own git branch** (`exercise-NN-name`, each cumulative off the
+previous) and is documented in **[`learning-notes/`](learning-notes/README.md)** with:
+challenge, how to explain it in an interview, files created, new concepts, likely follow-up
+questions, and best-practice memory hooks.
+
+### What this fork adds
+
+Custom Sling Models, OSGi services, servlets, a scheduler, components, and an EDS block:
+
+| # | Exercise | Branch | Concepts |
+|---|----------|--------|----------|
+| 1 | Employee Card | `learning/aem-practice-set` | Dialog · Sling Model · HTL · clientlib |
+| 2 | Article List | `exercise-02-article-list` | Composite multifield · `@ChildResource` · `data-sly-list` |
+| 3 | Core Component Extension | `exercise-03-core-extension` | `resourceSuperType` · Resource Merger · `@Via` delegation |
+| 4 | Configurable OSGi Service | `exercise-04-osgi-config` | `@Component` · `@ObjectClassDefinition` · `@Designate` |
+| 5 | JSON Servlet | `exercise-05-json-servlet` | `@SlingServletResourceTypes` · selectors |
+| 6 | Servlet → Service → Repo | `exercise-06-servlet-service` | Layering · `@Reference` · `ResourceResolver` |
+| 7 | Service User | `exercise-07-service-user` | repoinit · service user mapping · try-with-resources |
+| 8 | QueryBuilder Search | `exercise-08-querybuilder` | Predicate map · indexing vs traversal |
+| 9 | Search full stack | `exercise-09-search-fullstack` | `data-*` handoff · `fetch` · UI states |
+| 10 | FAQ accordion | `exercise-10-faq` | `data-sly-repeat` · ARIA accordion |
+| 11 | External API | `exercise-11-external-api` | Timeouts · error handling · fallback |
+| 12 | Scheduler | `exercise-12-scheduler` | Whiteboard scheduler · cron |
+| 13 | Dispatcher debugging | `exercise-13-dispatcher` | Filters · cache · deny-by-default |
+| 14 | EDS Card block | `exercise-14-eds-card` | `decorate(block)` · DOM transform |
+| 15 | Full Product System | `exercise-15-full-system` | Capstone — whole stack together |
+
+**Added source (cumulative, latest on `exercise-15-full-system`):**
+- `core/.../models` — `EmployeeCard`, `Article`/`ArticleList`, `ImageTracking`, `Product`,
+  `Faq`/`FaqItem`, `ProductListing`, `GreetingModel`, `ExternalProductModel` (+ impls)
+- `core/.../services` — `GreetingService`, `ProductService`, `ProductSearchService`,
+  `ExternalProductService` (+ impls & OSGi configs)
+- `core/.../servlets` — `ProductsServlet`, `ProductListServlet`, `ProductSearchServlet`
+- `core/.../schedulers` — `ProductReportScheduler`
+- `ui.apps/.../components` — `employee-card`, `article-list`, `image-tracking`, `greeting`,
+  `product-search`, `faq`, `external-product`, `product-listing`
+- `ui.config` — repoinit (service user + ACL) and service-user-mapping configs
+- `eds/blocks/card` — a standalone Edge Delivery Services block
+- `learning-notes/` — the per-exercise documentation
+
+### Build note for this fork
+The custom `core` bundle is validated on **AEM 6.5**, so build/deploy it with the **`-Pclassic`**
+profile (the default `cloudservice` profile imports newer package versions that won't resolve on
+6.5). See [`learning-notes/README.md`](learning-notes/README.md) for exact deploy commands.
+
+> The original upstream WKND documentation follows below.
+
+---
+
+## About the base WKND project
 
 >[!IMPORTANT]
 >
