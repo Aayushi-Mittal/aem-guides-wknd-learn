@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDS Card block demo</title>
+  <link rel="stylesheet" href="blocks/card/card.css">
+</head>
+<body style="padding:24px;background:#fafafa">
+  <!-- Authored DOM exactly as EDS delivers it (generic divs) -->
+  <div class="card block">
+    <div>
+      <div><picture><img src="https://picsum.photos/id/1018/320/180" alt="Mountains"></picture></div>
+      <div>
+        <h3>Adventure Awaits</h3>
+        <p>Explore the wild with WKND.</p>
+        <p><a href="https://example.com">Learn more</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import decorate from './blocks/card/card.js';
+    document.querySelectorAll('.card.block').forEach(decorate);
+  </script>
+</body>
+</html>
