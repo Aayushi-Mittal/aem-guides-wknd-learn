@@ -1,0 +1,19 @@
+<!--/* product-listing.html */-->
+<div data-sly-use.model="com.adobe.aem.guides.wknd.core.models.ProductListing"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     class="cmp-product-listing">
+
+    <sly data-sly-call="${clientlib.css @ categories='wknd.productlisting'}"/>
+
+    <h2 class="cmp-product-listing__title" data-sly-test="${model.title}">${model.title}</h2>
+
+    <p data-sly-test="${!model.products}">No products found.</p>
+
+    <div class="cmp-product-listing__grid" data-sly-list.product="${model.products}">
+        <div class="cmp-product-listing__card">
+            <h3 class="cmp-product-listing__name">${product.name}</h3>
+            <span class="cmp-product-listing__cat">${product.category}</span>
+            <span class="cmp-product-listing__price">&#8377;${product.price}</span>
+        </div>
+    </div>
+</div>

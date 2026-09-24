@@ -1,0 +1,8 @@
+.cmp-product-listing { font-family: sans-serif; }
+.cmp-product-listing__grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;
+}
+.cmp-product-listing__card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; }
+.cmp-product-listing__name { margin: 0 0 6px; font-size: 1rem; }
+.cmp-product-listing__cat { display: inline-block; font-size: .8rem; color: #666; margin-right: 8px; }
+.cmp-product-listing__price { font-weight: 600; }
