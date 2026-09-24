@@ -1,0 +1,10 @@
+.cmp-faq { max-width: 640px; font-family: sans-serif; }
+.cmp-faq__heading { margin: 0; }
+.cmp-faq__question {
+    width: 100%; text-align: left; padding: 14px 16px; cursor: pointer;
+    background: #f5f5f5; border: 1px solid #e0e0e0; font-size: 1rem; font-weight: 600;
+}
+.cmp-faq__question[aria-expanded="true"] { background: #e8f0fe; }
+.cmp-faq__question::after { content: " \25BC"; float: right; font-size: .8em; }
+.cmp-faq__question[aria-expanded="true"]::after { content: " \25B2"; }
+.cmp-faq__panel { padding: 14px 16px; border: 1px solid #e0e0e0; border-top: 0; }

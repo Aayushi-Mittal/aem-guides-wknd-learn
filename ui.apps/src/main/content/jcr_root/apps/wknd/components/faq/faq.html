@@ -1,0 +1,26 @@
+<!--/* faq.html */-->
+<div data-sly-use.faq="com.adobe.aem.guides.wknd.core.models.Faq"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     class="cmp-faq">
+
+    <sly data-sly-call="${clientlib.all @ categories='wknd.faq'}"/>
+
+    <div class="cmp-faq__item" data-sly-repeat.item="${faq.items}">
+        <h3 class="cmp-faq__heading">
+            <!--/* button + aria-expanded + aria-controls = the accessible accordion pattern */-->
+            <button class="cmp-faq__question" type="button"
+                    id="faq-btn-${itemList.index}"
+                    aria-expanded="false"
+                    aria-controls="faq-panel-${itemList.index}">
+                ${item.question}
+            </button>
+        </h3>
+        <div class="cmp-faq__panel"
+             id="faq-panel-${itemList.index}"
+             role="region"
+             aria-labelledby="faq-btn-${itemList.index}"
+             hidden>
+            ${item.answer}
+        </div>
+    </div>
+</div>
