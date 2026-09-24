@@ -1,0 +1,16 @@
+<!--/* product-search.html */-->
+<div data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     class="cmp-product-search"
+     data-endpoint="${currentPage.path @ context='uri'}.productsearch.json">
+
+    <sly data-sly-call="${clientlib.all @ categories='wknd.productsearch'}"/>
+
+    <div class="cmp-product-search__bar">
+        <input type="text" class="cmp-product-search__input"
+               aria-label="Category" placeholder="Category e.g. hiking"/>
+        <button type="button" class="cmp-product-search__button">Search</button>
+    </div>
+
+    <!--/* aria-live so screen readers announce results as they load */-->
+    <div class="cmp-product-search__results" aria-live="polite"></div>
+</div>
